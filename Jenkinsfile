@@ -15,12 +15,12 @@ pipeline {
           }
         }
 
-        stage('frontEndUnitTest') {
-          steps {
-            sh 'cd curriculum-front && npm i && npm run test:unit'
-          }
-        }
+      }
+    }
 
+    stage('feunittest') {
+      steps {
+        sh 'cd curriculum-front && npm i && npm run test:unit'
       }
     }
 
