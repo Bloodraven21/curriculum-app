@@ -2,8 +2,19 @@ pipeline {
   agent any
   stages {
     stage('checkOutCode') {
-      steps {
-        git(url: 'https://github.com/Bloodraven21/curriculum-app', branch: 'dev')
+      parallel {
+        stage('checkOutCode') {
+          steps {
+            git(url: 'https://github.com/Bloodraven21/curriculum-app', branch: 'dev')
+          }
+        }
+
+        stage('logs') {
+          steps {
+            sh 'ls -la'
+          }
+        }
+
       }
     }
 
